@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount Rich::Engine => '/rich', :as => 'rich'
   resources :posts do
   #->Prelang (voting/acts_as_votable)
   member do
@@ -80,5 +81,5 @@ end
     put    "signup"  => "users/registrations#update", as: :update_user_registration
     get    "account" => "users/registrations#edit",   as: :edit_user_registration
   end
-
+  root 'welcome#index'
 end

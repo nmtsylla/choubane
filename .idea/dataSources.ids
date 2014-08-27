@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source source="LOCAL" name="Rails choubane: development" uuid="089c2c10-19b1-414d-864c-4ee2136f5bef">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source source="LOCAL" name="Rails choubane: test" uuid="c4efcdcf-4285-4bdf-8744-4550dd4c4ea3">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source source="LOCAL" name="Rails choubane: production" uuid="b33997c3-fcc6-4e99-b3c0-cb9757f564ca">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+</component>
