@@ -29,6 +29,7 @@ class CategorieAudiosController < ApplicationController
   # POST /categorie_audios.json
   def create
     @categorie_audio = CategorieAudio.new(categorie_audio_params)
+    @categorie_audio.user = current_user
 
     respond_to do |format|
       if @categorie_audio.save
