@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @categorie_audio.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @categorie_audio.description %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @categorie_audio.user %>
+</p>
+
+<%= link_to 'Edit', edit_categorie_audio_path(@categorie_audio) %> |
+<%= link_to 'Back', categorie_audios_path %>
