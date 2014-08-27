@@ -1,6 +1,5 @@
-<h1>Editing categorie_audio</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @categorie_audio %> |
-<%= link_to 'Back', categorie_audios_path %>
+<%- model_class = CategorieAudio -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => CategorieAudio %></h1>
+</div>
+<%= render :partial => 'form' %>
