@@ -19,6 +19,7 @@ class AudiosController < InheritedResources::Base
   # GET /categorie_audios/new
   def new
     @audio = Audio.new
+    @audio.user = current_user
   end
 
   # GET /categorie_audios/1/edit
@@ -85,6 +86,6 @@ class AudiosController < InheritedResources::Base
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def audio_params
-    params.require(:audio).permit(:title, :author, :user_id, :image, :piste)
+    params.require(:audio).permit(:title, :author, :user_id, :image, :piste, :categorie_audio_id, :titre)
   end
 end

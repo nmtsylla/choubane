@@ -5,14 +5,13 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-<meta name="viewport" content="width=device-width, initial-scale=1"/><!-- Prelang: Analytics / Google Analytics -->
-    <%= analytics_init if Rails.env.production? %></head>
+  <%= analytics_init if Rails.env.production? %></head>
 <body>
 
   <div class="row affix-row">
     <div class="col-sm-8 col-md-10 affix-content">
       <div class="container">
-        <%= render partial: "elements/navbar" %>
+        <%= render partial: 'elements/navbar' %>
         <%= bootstrap_flash %>
         <%= yield %>
       </div>

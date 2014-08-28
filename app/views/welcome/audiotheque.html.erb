@@ -1,0 +1,8 @@
+<div>
+  <ul>
+  <%= @categories.each do |categ| %>
+    <li><%= link_to categ.name, categ %></li>
+  <% end %>
+  </ul>
+
+</div>

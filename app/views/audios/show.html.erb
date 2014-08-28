@@ -1,304 +1,37 @@
-<style>
-  .example {
-    margin: 50px auto 0;
-    width: 400px;
-  }
-  .player {
-    background: transparent url("../images/spr.png") no-repeat scroll center top;
-    height: 162px;
-    position: relative;
-    width: 326px;
-    z-index: 2;
-  }
-  .title, .artist {
-    font-family: verdana;
-    left: 167px;
-    position: absolute;
-
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-  }
-  .title {
-    color: #FFFFFF;
-    font-size: 14px;
-    font-weight: bold;
-    top: 23px;
-  }
-  .artist {
-    color: #EEEEEE;
-    font-size: 12px;
-    top: 40px;
-  }
-  .pl {
-    background: transparent url("../images/spr.png") no-repeat scroll -274px -175px;
-    cursor: pointer;
-    height: 34px;
-    left: 270px;
-    position: absolute;
-    top: 20px;
-    width: 32px;
-  }
-  .pl:hover {
-    top: 21px;
-  }
-  .cover {
-    background: transparent url(../data/cover1.jpg) no-repeat scroll center top;
-    border-radius: 5px 5px 5px 5px;
-    height: 94px;
-    left: 20px;
-    position: absolute;
-    top: 20px;
-    width: 94px;
-  }
-  .controls {
-    cursor: pointer;
-    height: 23px;
-    left: 167px;
-    position: absolute;
-    top: 65px;
-    width: 138px;
-  }
-  .controls .play, .controls .pause, .controls .rew, .controls .fwd {
-    background: transparent url("../images/spr.png") no-repeat scroll 0 0;
-    float: left;
-    height: 100%;
-    width: 33%;
-  }
-  .controls .play {
-    background-position: -8px -171px;
-  }
-  .controls .pause {
-    background-position: -8px -198px;
-    display: none;
-  }
-  .controls .rew {
-    background-position: -54px -171px;
-  }
-  .controls .fwd {
-    background-position: -100px -171px;
-  }
-  .controls .play:hover {
-    background-position: -8px -170px;
-  }
-  .controls .pause:hover {
-    background-position: -8px -197px;
-  }
-  .controls .rew:hover {
-    background-position: -54px -170px;
-  }
-  .controls .fwd:hover {
-    background-position: -100px -170px;
-  }
-  .hidden {
-    display: none;
-  }
-  .controls .visible {
-    display: block;
-  }
-  .volume {
-    height: 11px;
-    left: 186px;
-    position: absolute;
-    top: 96px;
-    width: 112px;
-  }
-  .tracker {
-    height: 15px;
-    left: 20px;
-    position: absolute;
-    top: 126px;
-    width: 285px;
-  }
-  .ui-slider-range {
-    background: transparent url("../images/spr.png") no-repeat scroll 5px -222px;
-    height: 100%;
-    position: absolute;
-    top: 0;
-  }
-  .ui-slider-handle {
-    cursor: pointer;
-    height: 10px;
-    margin-left: -5px;
-    position: absolute;
-    top: 2px;
-    width: 10px;
-    z-index: 2;
-  }
-  .volume .ui-slider-handle {
-    background: url("../images/spr.png") no-repeat scroll -201px -188px rgba(0, 0, 0, 0);
-    height: 13px;
-    width: 13px;
-  }
-  .playlist {
-    background-color: #333333;
-    border-radius: 5px 5px 5px 5px;
-    list-style-type: none;
-    margin: -10px 0 0 2px;
-    padding-bottom: 10px;
-    padding-top: 15px;
-    position: relative;
-    width: 326px;
-    z-index: 1;
-  }
-  .playlist li {
-    color: #EEEEEE;
-    cursor: pointer;
-    margin: 0 0 5px 15px;
-  }
-  .playlist li.active {
-    font-weight: bold;
-  }
-
-</style>
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>User:</strong>
-  <%= @audio.user %>
-</p>
-
-<p>
-  <strong>Author:</strong>
-  <%= @audio.author %>
-</p>
-
-<p>
-  <strong>Date:</strong>
-  <%= @audio.date %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= @audio.image %>
-</p>
-
-<p>
-  <strong>Piste:</strong>
-  <%= @audio.piste %>
-  <a href="/audios/<%=@audio.id%>/audio_download"><%= @audio.piste_file_name %></a>
-</p>
-
-<div class="player">
-  02
-  <div class="pl"></div>
-  03
-  <div class="title"></div>
-  04
-  <div class="artist"></div>
-  05
-  <div class="cover"></div>
-  06
-  <div class="controls">
-    07
-    <div class="play"></div>
-    08
-    <div class="pause"></div>
-    09
-    <div class="rew"></div>
-    10
-    <div class="fwd"></div>
-    11
-  </div>
-  12
-  <div class="volume"></div>
-  13
-  <div class="tracker"></div>
-  14
+<%- model_class = Audio -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
 </div>
-15
-<ul class="playlist hidden">
-  <li audiourl="/audios/<%=@audio.id%>" cover="cover1.jpg" artist="Artist 1">01.mp3</li>
-</ul>
 
+<div class="fieldset">
+  <dl>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:user_id) %></dt>
+      <dd><pre class="prettyprint"><%= @audio.user_id %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:author) %></dt>
+      <dd><pre class="prettyprint"><%= @audio.author %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:date) %></dt>
+      <dd><pre class="prettyprint"><%= @audio.date %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:image) %></dt>
+      <dd><%= image_tag @audio.image.url(:thumb) %></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:piste) %></dt>
+      <dd><pre class="prettyprint"><%= @audio.piste_file_name %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:categorie_audio) %></dt>
+      <dd><pre class="prettyprint"><%= @audio.categorie_audio.name %></pre></dd>
 
-<%= link_to 'Edit', edit_audio_path(@audio) %> |
-<%= link_to 'Back', audios_path %>
+  </dl>
+  <% if @audio.piste_file_name %>
+    <%= render partial: 'audios/unique_player' %>
+  <% end %>
+</div>
 
-<script>
-  // inner variables
-  var song;
-  var tracker = $('.tracker');
-  var volume = $('.volume');
-
-  // initialization - first element in playlist
-  initAudio($('.playlist li:first-child'));
-
-  // set volume
-  song.volume = 0.8;
-
-  // initialize the volume slider
-  volume.slider({
-    range: 'min',
-    min: 1,
-    max: 100,
-    value: 80,
-    start: function(event,ui) {},
-    slide: function(event, ui) {
-      song.volume = ui.value / 100;
-    },
-    stop: function(event,ui) {},
-  });
-
-  // empty tracker slider
-  tracker.slider({
-    range: 'min',
-    min: 0, max: 10,
-    start: function(event,ui) {},
-    slide: function(event, ui) {
-      song.currentTime = ui.value;
-    },
-    stop: function(event,ui) {}
-  });
-
-  function initAudio(elem) {
-    var url = elem.attr('audiourl');
-    var title = elem.text();
-    var cover = elem.attr('cover');
-    var artist = elem.attr('artist');
-
-    $('.player .title').text(title);
-    $('.player .artist').text(artist);
-    $('.player .cover').css('background-image','url(data/' + cover+')');;
-
-    song = new Audio('data/' + url);
-
-    // timeupdate event listener
-    song.addEventListener('timeupdate',function (){
-      var curtime = parseInt(song.currentTime, 10);
-      tracker.slider('value', curtime);
-    });
-
-    $('.playlist li').removeClass('active');
-    elem.addClass('active');
-  }
-  function playAudio() {
-    song.play();
-
-    tracker.slider("option", "max", song.duration);
-
-    $('.play').addClass('hidden');
-    $('.pause').addClass('visible');
-  }
-  function stopAudio() {
-    song.pause();
-
-    $('.play').removeClass('hidden');
-    $('.pause').removeClass('visible');
-  }
-
-  // play click
-  $('.play').click(function (e) {
-    e.preventDefault();
-
-    playAudio();
-  });
-
-  // pause click
-  $('.pause').click(function (e) {
-    e.preventDefault();
-
-    stopAudio();
-  });
-
-</script>
+<div class="form-group">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              audios_path, :class => 'btn btn-default'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_audio_path(@audio), :class => 'btn btn-default' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              audio_path(@audio),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>

@@ -1,15 +1,48 @@
-<%= simple_form_for(@audio) do |f| %>
-  <%= f.error_notification %>
+<%= form_for @audio, :html => { :class => 'form-horizontal form-model' } do |f| %>
+  <div class="form-group">
+    <%= f.label :titre, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :titre, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :author, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :author, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :date, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.date_select :date, :class => 'select-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :image, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.file_field :image, :class => 'select-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :piste, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.file_field :piste, :class => 'select-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :categorie_audio, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
 
-  <div class="form-inputs">
-    <%= f.association :user %>
-    <%= f.input :author %>
-    <%= f.input :date %>
-    <%= f.file_field :image %>
-    <%= f.file_field :piste %>
+      <%= collection_select(:audio, :categorie_audio_id, CategorieAudio.all, :id, :name) %>
+    </div>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+
+  <div class="form-group">
+    <div class='col-sm-offset-3 col-sm-9'>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  audios_path, :class => 'btn btn-default' %>
+    </div>
   </div>
 <% end %>

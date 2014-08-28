@@ -3,10 +3,15 @@ class Audio < ActiveRecord::Base
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 
   has_attached_file :piste
-  validates_attachment_content_type :piste, :content_type => [ 'audio/mp3','audio/mpeg']
+  validates_attachment_content_type :piste, :content_type => /\Aaudio\/.*\Z/
 
-  belongs_to :categorie_audio, class_name: 'CategorieAudio', foreign_key: 'categorie_audio'
+  belongs_to :categorie_audio, class_name: 'CategorieAudio', foreign_key: 'categorie_audio_id'
   belongs_to :user
+
+
   acts_as_votable
-  validates :categorie_audio, presence: true
+  validates :categorie_audio_id, presence: true
+
+  private
+
 end

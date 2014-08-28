@@ -16,11 +16,9 @@
   </div>
   <ul class="playlist">
     <% @audios.each do |audio| %>
-    <li audiourl="<%= audio.piste %>" cover="cover1.jpg" artist="Artist 1"><%= audio.author %>
+    <li audiourl="<%= audio.piste %>" cover="<%= audio.image.url(:thumb) %>" artist="Artist 1"><%= audio.author %>
       <a href="#">Download</a></li>
     <% end %>
-    <li audiourl="http://upload.wikimedia.org/wikipedia/en/4/45/ACDC_-_Back_In_Black-sample.ogg" cover="cover1.jpg" artist="Artist 1"> audio.author
-      <a href="#">Download</a></li>
 
   </ul>
 
