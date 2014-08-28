@@ -41,7 +41,7 @@ gem 'spring',        group: :development
 gem 'bundler'
 
 gem 'simple_form'
-gem 'bootstrap-sass', github: 'twbs/bootstrap-sass'
+gem 'bootstrap-sass', '3.1.1'
 gem 'bootstrap-sass-extras'
 gem 'acts_as_votable', github: 'ryanto/acts_as_votable'
 gem 'google-analytics-rails'
@@ -53,9 +53,12 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'tzinfo-data'
 gem 'validates_formatting_of'
-gem 'rich'
-gem 'paperclip', '4.1.1'
+gem 'paperclip', :git => 'git://github.com/thoughtbot/paperclip.git'
 gem 'rack-raw-upload', '1.1.1'
+gem 'tinymce-rails'
+gem 'tinymce-rails-imageupload', '~> 4.0.0.beta'
+
+
 group :development, :test do
   gem 'dotenv-rails'
 end

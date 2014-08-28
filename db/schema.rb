@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140827112224) do
+ActiveRecord::Schema.define(version: 20140828004359) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,18 +50,24 @@ ActiveRecord::Schema.define(version: 20140827112224) do
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "audios", force: true do |t|
-    t.string   "title"
+    t.integer  "user_id"
     t.string   "author"
     t.datetime "date"
-    t.string   "url_audio"
-    t.boolean  "published"
-    t.integer  "categorie_audio_id"
-    t.integer  "user_id"
+    t.string   "image"
+    t.string   "piste"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "categorie_audio"
+    t.string   "piste_file_name"
+    t.string   "piste_content_type"
+    t.integer  "piste_file_size"
+    t.datetime "piste_updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
-  add_index "audios", ["categorie_audio_id"], name: "index_audios_on_categorie_audio_id", using: :btree
   add_index "audios", ["user_id"], name: "index_audios_on_user_id", using: :btree
 
   create_table "categorie_audios", force: true do |t|
@@ -73,6 +79,16 @@ ActiveRecord::Schema.define(version: 20140827112224) do
   end
 
   add_index "categorie_audios", ["user_id"], name: "index_categorie_audios_on_user_id", using: :btree
+
+  create_table "categorie_posts", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "categorie_posts", ["user_id"], name: "index_categorie_posts_on_user_id", using: :btree
 
   create_table "comments", force: true do |t|
     t.integer  "post_id"
@@ -110,22 +126,10 @@ ActiveRecord::Schema.define(version: 20140827112224) do
     t.integer  "nbr_views"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "categorie_post"
   end
 
   add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
-
-  create_table "rich_rich_files", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "rich_file_file_name"
-    t.string   "rich_file_content_type"
-    t.integer  "rich_file_file_size"
-    t.datetime "rich_file_updated_at"
-    t.string   "owner_type"
-    t.integer  "owner_id"
-    t.text     "uri_cache"
-    t.string   "simplified_type",        default: "file"
-  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

@@ -1,13 +1,12 @@
 class CreateAudios < ActiveRecord::Migration
   def change
     create_table :audios do |t|
-      t.string :title
-      t.string :author
-      t.datetime :date
-      t.string :url_audio
-      t.boolean :published
-      t.references :categorie_audio, index: true
       t.references :user, index: true
+      t.string :author
+      t.string :string
+      t.datetime :date
+      t.string :image
+      t.string :piste
 
       t.timestamps
     end

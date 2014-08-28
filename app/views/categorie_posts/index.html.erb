@@ -1,0 +1,29 @@
+<h1>Listing categorie_posts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @categorie_posts.each do |categorie_post| %>
+      <tr>
+        <td><%= categorie_post.name %></td>
+        <td><%= categorie_post.description %></td>
+        <td><%= categorie_post.user %></td>
+        <td><%= link_to 'Show', categorie_post %></td>
+        <td><%= link_to 'Edit', edit_categorie_post_path(categorie_post) %></td>
+        <td><%= link_to 'Destroy', categorie_post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Categorie post', new_categorie_post_path %>

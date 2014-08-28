@@ -1,5 +1,5 @@
 ActiveAdmin.register Post do
-  permit_params :title, :content, :published, :nbr_views
+  permit_params :title, :content, :published
 
 
   # See permitted parameters documentation:
@@ -14,6 +14,6 @@ ActiveAdmin.register Post do
   #  permitted << :other if resource.something?
   #  permitted
   # end
-
+  form :partial => "posts/form"
 
 end

@@ -1,5 +1,5 @@
-ActiveAdmin.register Audio do
-  permit_params :title, :author, :date, :url_audio, :published
+ActiveAdmin.register CategoriePost do
+  permit_params :name, :description
 
 
   # See permitted parameters documentation:

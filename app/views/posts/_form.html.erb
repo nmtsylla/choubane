@@ -1,4 +1,4 @@
-<%= form_for @post, :html => { :class => 'form-horizontal form-model' } do |f| %>
+<%= semantic_form_for @post, :html => { :class => 'form-horizontal form-model' } do |f| %>
   <div class="form-group">
     <%= f.label :title, :class => 'control-label col-md-2' %>
     <div class="col-md-10">
@@ -6,21 +6,21 @@
     </div>
   </div>
   <div class="form-group">
+    <%= f.label :categorie_post, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.input :categorie_post, :class => 'control-label col-md-2' %>
+    </div>
+  </div>
+  <div class="form-group">
     <%= f.label :content, :class => 'control-label col-md-2' %>
     <div class="col-md-10">
-      <%= f.text_area :content, :class => 'text-field form-control' %>
+      <%= text_area_tag :content, '', :class => 'tinymce', :rows => 40, :cols => 140 %>
     </div>
   </div>
   <div class="form-group">
     <%= f.label :published, :class => 'control-label col-md-2' %>
     <div class="col-md-10">
       <%= f.check_box :published, :class => 'text-field form-control' %>
-    </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :nbr_views, :class => 'control-label col-md-2' %>
-    <div class="col-md-10">
-      <%= f.number_field :nbr_views, :class => 'text-field form-control' %>
     </div>
   </div>
 
@@ -32,3 +32,4 @@
     </div>
   </div>
 <% end %>
+<%= tinymce %>

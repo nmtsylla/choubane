@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
-  mount Rich::Engine => '/rich', :as => 'rich'
+
+  resources :audios do
+    member do
+      get 'audio_download' => 'audios#audio_download', as: :audio_download
+    end
+  end
+
+  post '/tinymce_assets' => 'tinymce_assets#create'
+  
+  resources :categorie_posts
+
   resources :posts do
   #->Prelang (voting/acts_as_votable)
   member do

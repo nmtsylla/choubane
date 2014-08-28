@@ -1,0 +1,16 @@
+toolbar:
+  - bold italic forecolor backcolor | alignleft aligncenter alignright | undo redo | fullscreen wordcount  preview  link  lists  hr
+  - visualblocks ltr rtl | uploadimage
+plugins:
+  - table
+  - fullscreen
+  - image
+  - wordcount
+  - preview
+  - link
+  - lists
+  - hr
+  - textcolor
+  - directionality
+  - lists
+  - uploadimage
