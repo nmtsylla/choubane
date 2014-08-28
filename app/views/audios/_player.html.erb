@@ -1,0 +1,29 @@
+<div class="example">
+
+  <div class="player">
+    <div class="pl"></div>
+    <div class="title"></div>
+    <div class="artist"></div>
+    <div class="cover"></div>
+    <div class="controls">
+      <div class="play"></div>
+      <div class="pause"></div>
+      <div class="rew"></div>
+      <div class="fwd"></div>
+    </div>
+    <div class="volume"></div>
+    <div class="tracker"></div>
+  </div>
+  <ul class="playlist">
+    <% @audios.each do |audio| %>
+    <li audiourl="<%= audio.piste %>" cover="cover1.jpg" artist="Artist 1"><%= audio.author %>
+      <a href="#">Download</a></li>
+    <% end %>
+    <li audiourl="http://upload.wikimedia.org/wikipedia/en/4/45/ACDC_-_Back_In_Black-sample.ogg" cover="cover1.jpg" artist="Artist 1"> audio.author
+      <a href="#">Download</a></li>
+
+  </ul>
+
+</div>
+
+<script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>

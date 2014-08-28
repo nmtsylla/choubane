@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  author: MyString
+  string: MyString
+  date: 2014-08-28 00:23:40
+  image: MyString
+  piste: MyString
+
+two:
+  user_id: 
+  author: MyString
+  string: MyString
+  date: 2014-08-28 00:23:40
+  image: MyString
+  piste: MyString
