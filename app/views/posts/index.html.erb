@@ -7,7 +7,7 @@
     <tr>
       <th>ID</th>
       <th><%= model_class.human_attribute_name(:title) %></th>
-      <th><%= model_class.human_attribute_name(:content) %></th>
+      <th><%= model_class.human_attribute_name(:user) %></th>
       <th><%= model_class.human_attribute_name(:published) %></th>
       <th><%= model_class.human_attribute_name(:nbr_views) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
@@ -19,7 +19,7 @@
       <tr>
         <td><%= post.id %></td>
         <td><%= post.title %></td>
-        <td><%= post.content %></td>
+        <td><%= post.user.name %></td>
         <td><%= post.published %></td>
         <td><%= post.nbr_views %></td>
         <td><%=l post.created_at, format: :long %></td>

@@ -1,8 +1,7 @@
 <div>
   <ul>
-  <%= @categories.each do |categ| %>
-    <li><%= link_to categ.name, categ %></li>
+  <% @categories.each do |categ| %>
+    <li><%= link_to categ.name, '#'+categ.id.to_s %>(<%= categ.audios.count%>)</li>
   <% end %>
   </ul>
-
 </div>

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :evenements, :has_many => :photos
+
   resources :audios do
     member do
       get 'audio_download' => 'audios#audio_download', as: :audio_download
@@ -98,4 +100,5 @@ end
   root 'welcome#index'
   get '/audiotheque' => 'welcome#audiotheque', as: :audiotheque
   get '/principes' => 'welcome#principes', as: :principes
+
 end

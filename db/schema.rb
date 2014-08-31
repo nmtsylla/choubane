@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140828202730) do
+ActiveRecord::Schema.define(version: 20140831163511) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -119,6 +119,27 @@ ActiveRecord::Schema.define(version: 20140828202730) do
 
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
 
+  create_table "evenements", force: true do |t|
+    t.string   "titre"
+    t.datetime "date_event"
+    t.string   "lieu"
+    t.text     "details"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "evenements", ["user_id"], name: "index_evenements_on_user_id", using: :btree
+
+  create_table "photos", force: true do |t|
+    t.integer  "imageable_id"
+    t.string   "imageable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "photos", ["imageable_id", "imageable_type"], name: "index_photos_on_imageable_id_and_imageable_type", using: :btree
+
   create_table "posts", force: true do |t|
     t.integer  "user_id"
     t.string   "title"
@@ -127,9 +148,14 @@ ActiveRecord::Schema.define(version: 20140828202730) do
     t.integer  "nbr_views"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "categorie_post"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+    t.integer  "categorie_post_id"
   end
 
+  add_index "posts", ["categorie_post_id"], name: "index_posts_on_categorie_post_id", using: :btree
   add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
