@@ -24,3 +24,7 @@ test:
 
 production:
   <<: *default
+  database: choubane_db
+  username: choubane
+  password: massilia
+  host: postgresql1.alwaysdata.com

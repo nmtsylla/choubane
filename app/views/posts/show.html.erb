@@ -8,7 +8,7 @@
       <dt class="label label-default"><%= model_class.human_attribute_name(:title) %></dt>
       <dd><pre class="prettyprint"><%= @post.title %></pre></dd>
       <dt class="label label-default"><%= model_class.human_attribute_name(:content) %></dt>
-      <dd><pre class="prettyprint"><%= @post.content %></pre></dd>
+      <dd><pre class="prettyprint"><%= raw @post.content %></pre></dd>
       <dt class="label label-default"><%= model_class.human_attribute_name(:published) %></dt>
       <dd><pre class="prettyprint"><%= @post.published %></pre></dd>
       <dt class="label label-default"><%= model_class.human_attribute_name(:nbr_views) %></dt>

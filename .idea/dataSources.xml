@@ -18,7 +18,9 @@
     <data-source source="LOCAL" name="Rails choubane: production" uuid="b33997c3-fcc6-4e99-b3c0-cb9757f564ca">
       <driver-ref>postgresql</driver-ref>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql:db/production.sqlite3</jdbc-url>
+      <jdbc-url>jdbc:postgresql://postgresql1.alwaysdata.com/choubane_db</jdbc-url>
+      <user-name>choubane</user-name>
+      <user-password>dfc7dfcbdfd9dfd9dfc3dfc6dfc3dfcb</user-password>
       <libraries />
     </data-source>
   </component>

@@ -8,7 +8,6 @@ Rails.application.routes.draw do
     end
   end
 
-  post '/tinymce_assets' => 'tinymce_assets#create'
   
   resources :categorie_posts
 

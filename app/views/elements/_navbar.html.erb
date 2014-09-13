@@ -26,7 +26,14 @@
         </ul>
       </li>
       <li><%= link_to "Enseignement", posts_path %></li>
-      <li><%= link_to "Audiothéque", audiotheque_path %></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mediatheque <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li><%= link_to "Audiotheque", audiotheque_path %></li>
+          <li><%= link_to "Photheque", audiotheque_path %></li>
+          <li><%= link_to "Videotheque", audiotheque_path %></li>
+        </ul>
+      </li>
       <li><a href="#">Evenement</a></li>
       <li><a href="#">Contact</a></li>
     </ul>

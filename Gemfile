@@ -55,9 +55,8 @@ gem 'tzinfo-data'
 gem 'validates_formatting_of'
 gem 'paperclip', :git => 'git://github.com/thoughtbot/paperclip.git'
 gem 'rack-raw-upload', '1.1.1'
-gem 'tinymce-rails'
-gem 'tinymce-rails-imageupload', '~> 4.0.0.beta'
 
+gem 'mercury-rails'
 
 group :development, :test do
   gem 'dotenv-rails'

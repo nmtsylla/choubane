@@ -4,6 +4,7 @@ class WelcomeController < ApplicationController
 
   def audiotheque
     @categories = CategorieAudio.all
+    @audios = Audio.all
   end
 
   def principes
